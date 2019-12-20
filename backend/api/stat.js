@@ -1,8 +1,9 @@
 module.exports = app => {
     const Stat = app.mongoose.model('Stat', {
         users: Number,
-        categories: Number,
-        articles: Number,
+        cities: Number,
+        schools: Number,
+        groupChecks: Number,
         createdAt: Date
     })
 
@@ -11,8 +12,9 @@ module.exports = app => {
             .then(stat => {
                 const defaultStat = {
                     users: 0,
-                    categories: 0,
-                    articles: 0
+                    cities: 0,
+                    schools: 0,
+                    groupChecks: 0
                 }
                 res.json(stat || defaultStat)
             })

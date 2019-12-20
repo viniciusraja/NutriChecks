@@ -49,12 +49,19 @@ module.exports = app => {
         }
     }
 
-    const get = (req, res) => {
+
+    const limit = 10 // usado para paginação
+    const get = async (req, res) => {
+        const page = req.query.page || 1
+
+        const result = await app.db('users').count('id').first()
+        const count = parseInt(result.count)
+
         app.db('users')
             .select('id', 'name', 'email', 'admin')
+            .limit(limit).offset(page * limit - limit)
             .then(users => res.json(users))
             .catch(err => res.status(500).send(err))
-            
     }
 
     const getById = (req, res) => {
@@ -65,7 +72,6 @@ module.exports = app => {
             .then(user => res.json(user))
             .catch(err => res.status(500).send(err))
     }
-
 
 
     const remove = async (req, res) => {
