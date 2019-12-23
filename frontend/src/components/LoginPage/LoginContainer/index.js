@@ -1,9 +1,11 @@
 import React from 'react';
-
-// import { Container } from './styles';
+import UserForm from '../UserForm'
+import { Container } from './styles';
 
 export default function LoginContainer() {
   return (
-    <div />
+    <Container>
+        <UserForm/>
+    </Container>
   );
 }

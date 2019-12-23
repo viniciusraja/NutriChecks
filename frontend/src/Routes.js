@@ -1,6 +1,6 @@
 import React from 'react';
 import{Switch, Route, Redirect} from 'react-router'
-import LoginPage from './src/components/LoginPage/Board/index'
+import LoginPage from './components/LoginPage/Board'
 
 export default props=>
     <Switch>
