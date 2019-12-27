@@ -5,7 +5,7 @@ export const Container = styled.div`
   height:75%;
   width:30%;
   background-color:white;
-  
+  align-content:center;
   justify-content:center;
   margin:10px;
   border-radius: 7px;
