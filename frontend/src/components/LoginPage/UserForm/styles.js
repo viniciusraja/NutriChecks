@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-
 export const Container = styled.div`
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -22,6 +22,11 @@ span{
   width:100%;
   justify-content:space-evenly;
   
+}
+h1{
+  margin-top:20px;
+  font-weight:400;
+  color:grey;
 }
 
 `;

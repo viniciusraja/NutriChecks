@@ -15,7 +15,8 @@ export default createGlobalStyle`
     }
 
     body{
-        font: 14 px 'Roboto, sans-serif';
+        font-family: 'Roboto', sans-serif;
+        font-size:14px;
         background:#ecf1f8;
         color:#333;
         -webkit-font-smoothing:antialiased !important;

@@ -16,15 +16,18 @@ const initialState = {
 export class UserForm extends Component {
   state = { ...initialState };
 
-  login() {
+  login=()=>{
     axios.post(`${baseApiUrl}/signin`, this.state)
       .then(res => {});
   }
 
-  signUp=()=>{
-    
+  goToSignUp=()=>{
     const { cadastro } = this.state;
     this.setState({ cadastro: !cadastro  })
+  }
+
+  signUp=()=>{
+    this.goToSignUp()
   }
 
   handleChange = input => e => {
@@ -34,12 +37,13 @@ export class UserForm extends Component {
   render() {
     const { name, email, password, cadastro } = this.state;
     switch (cadastro) {
-      case false:
+      case true:
         return (
           <MuiThemeProvider>
             <React.Fragment>
               <Container>
                 <img src={Logo} />
+                <h1>Login</h1>
                 <div>
                   <TextField
                     hintText="Digite seu E-mail"
@@ -47,6 +51,7 @@ export class UserForm extends Component {
                     onChange={this.handleChange("email")}
                   />
                   <TextField
+                  type="password"
                     hintText="Digite sua Senha"
                     floatingLabelText="Senha"
                     onChange={this.handleChange("password")}
@@ -61,19 +66,20 @@ export class UserForm extends Component {
 
                   <RaisedButton 
                    label="CADASTRE-SE" 
-                   onClick={this.signUp} 
+                   onClick={this.goToSignUp} 
                   />
                 </span>
               </Container>
             </React.Fragment>
           </MuiThemeProvider>
         );
-      case true:
+      case false:
         return (
           <MuiThemeProvider>
             <React.Fragment>
               <Container>
                 <img src={Logo} />
+                <h1>Cadastro</h1>
                 <div>
                   <TextField
                     hintText="Digite seu Nome"
@@ -86,6 +92,7 @@ export class UserForm extends Component {
                     onChange={this.handleChange("email")}
                   />
                   <TextField
+                  type="password"
                     hintText="Digite sua Senha"
                     floatingLabelText="Senha"
                     onChange={this.handleChange("password")}
